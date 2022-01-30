@@ -1,11 +1,15 @@
 const Blogpost = require('../models/blogpost');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const { uploadBlogImage } = require('./imageController');
 
 exports.createBlog = catchAsync(async (req, res, next) => {
   const { title, description, markdown } = req.body;
 
-  const blog = await Blogpost.create({ title, description, markdown });
+  const result = await uploadBlogImage(req);
+  const image = result?.key ?? '';
+
+  const blog = await Blogpost.create({ title, description, markdown, image });
 
   res.status(200).json({
     status: 'success',
