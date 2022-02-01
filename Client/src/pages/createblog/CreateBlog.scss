@@ -1,0 +1,132 @@
+.createForm {
+  max-width: 75rem;
+  background-color: white;
+  margin: 5rem auto;
+  border-radius: 5px;
+  padding: 5rem 7rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+.form {
+  &__group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__group:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  &__label {
+    margin-left: 0.3rem;
+    color: var(--color-grey-dark-2);
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+    display: block;
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 3px;
+    background-color: #e8f0fe;
+    width: 90%;
+    display: block;
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all 0.4s;
+
+    &:focus {
+      outline: none;
+      box-shadow: (--dark-shadow);
+      border-bottom: 3px solid #008000;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid var(--color-primary);
+    }
+  }
+
+  // &__select--label {
+  //   display: block;
+  //   position: relative;
+  //   font-size: 1.5rem;
+  //   font-weight: 500;
+  //   padding: 1rem 2rem;
+  //   background-color: white;
+  //   color: black;
+  //   border: 2px solid #4caf50; /* Green */
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   cursor: pointer;
+  //   transition-duration: 0.4s;
+
+  //   &:hover {
+  //     background-color: #4caf50; /* Green */
+  //     color: white;
+  //   }
+  // }
+
+  &__select {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    // opacity: 0;
+    // width: 0.1px;
+    // height: 0.1px;
+    // position: absolute;
+  }
+
+  &__textarea {
+    font-family: inherit;
+    font-size: 1.5rem;
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 3px;
+    background-color: #e8f0fe;
+    width: 90%;
+    display: block;
+    border: none;
+    border-bottom: 3px solid transparent;
+    transition: all 0.4s;
+
+    &:focus {
+      outline: none;
+      box-shadow: (--dark-shadow);
+      border-bottom: 3px solid #008000;
+    }
+
+    &:focus:invalid {
+      border-bottom: 3px solid var(--color-primary);
+    }
+  }
+
+  &__action {
+    margin: 2rem 0;
+
+    & p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  border: 2px solid #4caf50; /* Green */
+  padding: 1.5rem 3.2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  transition-duration: 0.4s;
+
+  &:hover {
+    background-color: #4caf50; /* Green */
+    color: white;
+  }
+}
