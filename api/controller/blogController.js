@@ -6,8 +6,9 @@ const { uploadBlogImage } = require('./imageController');
 exports.createBlog = catchAsync(async (req, res, next) => {
   const { title, description, markdown } = req.body;
 
-  const result = await uploadBlogImage(req);
-  const image = result?.key ?? '';
+  const image =
+    req.file?.location ??
+    'https://st3.depositphotos.com/23594922/31822/v/600/depositphotos_318221368-stock-illustration-missing-picture-page-for-website.jpg';
 
   const blog = await Blogpost.create({ title, description, markdown, image });
 
@@ -38,5 +39,17 @@ exports.getBlog = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     blog,
+  });
+});
+
+exports.deleteBlog = catchAsync(async (req, res, next) => {
+  const doc = await Blogpost.findByIdAndDelete(req.params.id);
+
+  if (!doc) {
+    return next(new AppError('No document found with that ID', 404));
+  }
+  res.status(204).json({
+    status: 'success',
+    data: null,
   });
 });
